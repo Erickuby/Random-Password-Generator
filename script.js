@@ -113,4 +113,24 @@ generateBtn.addEventListener('click', () => {
     }
   }
 
+  // Set password character sets to empty by default
+  let lowercaseChars = '';
+  let uppercaseChars = '';
+  let numericChars = '';
+  let specialChars = '';
+
+  // Prompt user for character types to include in password
+  if (confirm('Include lowercase characters in password?')) {
+    lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+  }
+  if (confirm('Include uppercase characters in password?')) {
+    uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  }
+  if (confirm('Include numeric characters in password?')) {
+    numericChars = '0123456789';
+  }
+  if (confirm('Include special characters in password?')) {
+    specialChars = '$@%&*';
+  }
+
 
