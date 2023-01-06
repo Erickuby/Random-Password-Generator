@@ -113,48 +113,4 @@ generateBtn.addEventListener('click', () => {
     }
   }
 
-  // Set password character sets to empty by default
-  let lowercaseChars = '';
-  let uppercaseChars = '';
-  let numericChars = '';
-  let specialChars = '';
 
-  // Prompt user for character types to include in password
-  if (confirm('Include lowercase characters in password?')) {
-    lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
-  }
-  if (confirm('Include uppercase characters in password?')) {
-    uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  }
-  if (confirm('Include numeric characters in password?')) {
-    numericChars = '0123456789';
-  }
-  if (confirm('Include special characters in password?')) {
-    specialChars = '$@%&*';
-  }
-
-  // Validate that at least one character type is selected
-  if (lowercaseChars + uppercaseChars + numericChars + specialChars === '') {
-    alert('You must select at least one character type');
-    return;
-  }
-
-  // Generate password
-  let password = '';
-  while (password.length < passwordLength) {
-    // Pick a random character type to add to password
-    const charType = Math.floor(Math.random() * 4);
-    if (charType === 0) {
-      password += lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
-    } else if (charType === 1) {
-      password += uppercaseChars[Math.floor(Math.random() * uppercaseChars.length)];
-    } else if (charType === 2) {
-      password += numericChars[Math.floor(Math.random() * numericChars.length)];
-    } else {
-      password += specialChars[Math.floor(Math.random() * specialChars.length)];
-    }
-  }
-
-  // Display password
-  passwordTextarea.textContent = password;
-});
