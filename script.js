@@ -133,4 +133,30 @@ generateBtn.addEventListener('click', () => {
     specialChars = '$@%&*';
   }
 
+    // Validate that at least one character type is selected
+    if (lowercaseChars + uppercaseChars + numericChars + specialChars === '') {
+      alert('You must select at least one character type');
+      return;
+    }
+  
+    // Generate password
+    let password = '';
+    while (password.length < passwordLength) {
+      // Pick a random character type to add to password
+      const charType = Math.floor(Math.random() * 4);
+      if (charType === 0) {
+        password += lowercaseChars[Math.floor(Math.random() * lowercaseChars.length)];
+      } else if (charType === 1) {
+        password += uppercaseChars[Math.floor(Math.random() * uppercaseChars.length)];
+      } else if (charType === 2) {
+        password += numericChars[Math.floor(Math.random() * numericChars.length)];
+      } else {
+        password += specialChars[Math.floor(Math.random() * specialChars.length)];
+      }
+    }
+  
+    // Display password
+    passwordTextarea.textContent = password;
+  });
+
 
